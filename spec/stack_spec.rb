@@ -82,5 +82,15 @@ RSpec.describe "Stack" do
     end
   end
 
+  context "handles edge cases" do
+    describe "#remove_chips" do
+      it "handles bets over chip amount gracefully" do
+        stack = Stack.new
+        stack.add_chips(seed_chips)
+        assert_equal "You don't have enough chips to make that bet Doyle Brunson!", stack.remove_chips(400)
+      end
+    end
+  end
+
 end#Stack
 
